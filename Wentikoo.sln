@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28803.352
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wentikoo", "Wentikoo\Wentikoo.csproj", "{99F9C633-2D17-4A08-8CCB-F2B03E3C155B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", "{BFC7A527-180A-4DE0-A8EA-FC3F7DFCBBA6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{99F9C633-2D17-4A08-8CCB-F2B03E3C155B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99F9C633-2D17-4A08-8CCB-F2B03E3C155B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99F9C633-2D17-4A08-8CCB-F2B03E3C155B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99F9C633-2D17-4A08-8CCB-F2B03E3C155B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BFC7A527-180A-4DE0-A8EA-FC3F7DFCBBA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BFC7A527-180A-4DE0-A8EA-FC3F7DFCBBA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BFC7A527-180A-4DE0-A8EA-FC3F7DFCBBA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BFC7A527-180A-4DE0-A8EA-FC3F7DFCBBA6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0A06C6B7-0EEE-490E-B268-CCD64D6F30BB}
+	EndGlobalSection
+EndGlobal
