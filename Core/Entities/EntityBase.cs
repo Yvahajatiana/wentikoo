@@ -6,7 +6,7 @@
 
     public class EntityBase
     {
-        public long Id { get; set; }
+        public int Id { get; set; }
 
         public Guid UniqueId { get; set; }
     }

@@ -18,6 +18,6 @@
 
         public string TransportType { get; set; }
 
-        public string 
+        public string Seller { get; set; }
     }
 }
