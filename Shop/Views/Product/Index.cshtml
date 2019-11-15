@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<partial name="_Banner" />
+
+<div class="main-content popup-one">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-lg-9 push-md-4 push-lg-3">
+                <partial name="_ProductList" />
+                <partial name="_Pagination" />
+            </div>
+            <div class="col-md-4 col-lg-3 pull-md-8 pull-lg-9">
+                <partial name="_Sidebar" />
+            </div>
+        </div><!-- /.row -->
+    </div><!-- /.container -->
+</div><!-- /.main-content -->
