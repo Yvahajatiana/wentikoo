@@ -338,3 +338,6 @@ ASALocalRun/
 
 # BeatPulse healthcheck temp database
 healthchecksdb
+/Agrimada.Memberspace/wwwroot/lib
+/Agrimada.Memberspace/wwwroot/js
+/Agrimada.Memberspace/wwwroot/css
