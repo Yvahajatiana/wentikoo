@@ -1,0 +1,12 @@
+﻿@model Hashdji.Software.Shop.Models.ProductViewModels.ProductDetailsViewModel
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "_ProductLayout";
+}
+
+<div class="details-content">
+    <partial name="_ProductDetails" model="Model"/>
+    <partial name="_ProductDescription" for="Desciptions"/>
+    <partial name="_RelatedProduct" for="RelatedProducts"/>
+</div><!-- /.details-content -->

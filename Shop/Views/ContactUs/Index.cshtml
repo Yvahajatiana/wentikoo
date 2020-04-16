@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="main-content bg-color">
+    <div class="tr-map">
+        <div class="container">
+            <div id="gmap"></div>
+        </div><!-- /.container -->
+    </div><!-- /.tr-map -->
+
+    <div class="tr-contact">
+        <div class="container">
+            <div class="form-content section-bg-white">
+                <div class="row">
+                    <div class="col-md-4">
+                        <partial name="_ContactInfo" />
+                    </div>
+                    <div class="col-md-8 col-lg-7 offset-lg-1">
+                        <partial name="_ContactForm" />
+                    </div>
+                </div><!-- /.row -->
+            </div><!-- /.form-content -->
+        </div><!-- /.container -->
+    </div><!-- /.tr-contact -->
+</div><!-- /.main-content -->
+@section scripts {
+    <script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=true"></script>
+    <script src="~/js/gmaps.min.js"></script>
+    <script src="~/js/gmaps-source.js"></script>
+}

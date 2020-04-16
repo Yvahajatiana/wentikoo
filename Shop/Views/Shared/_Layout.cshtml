@@ -53,7 +53,8 @@
 <body>
     <partial name="_CookieConsentPartial" />
     <partial name="_TopBar" />
-    <partial name="_TopMenu" />
+    <vc:top-menu></vc:top-menu>
+    @await Component.InvokeAsync("TopMenu")
 
     @RenderBody()
 

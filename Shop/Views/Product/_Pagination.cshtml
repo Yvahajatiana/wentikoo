@@ -1,20 +1,23 @@
-﻿<div class="tr-pagination text-center">
+﻿@model Hashdji.Software.Shop.Models.PaginedViewModel
+
+<div class="tr-pagination text-center">
     <ul class="pagination">
         <li class="float-left"><a class="page-numbers" href="#">Prev</a></li>
-        <li><a class="page-numbers" href="#">1</a></li>
-        <li><a class="page-numbers" href="#">2</a></li>
-        <li class="active"><a class="page-numbers" href="#">3</a></li>
-        <li><a class="page-numbers" href="#">4</a></li>
-        <li><a class="page-numbers" href="#">5</a></li>
-        <li><a class="page-numbers" href="#">6</a></li>
-        <li><a class="page-numbers" href="#">7</a></li>
-        <li><a class="page-numbers" href="#">8</a></li>
-        <li><a class="page-numbers" href="#">9</a></li>
-        <li><a class="page-numbers" href="#">...</a></li>
-        <li><a class="page-numbers" href="#">21</a></li>
-        <li><a class="page-numbers" href="#">22</a></li>
-        <li><a class="page-numbers" href="#">23</a></li>
-        <li><a class="page-numbers" href="#">24</a></li>
+        @for (int i = 1; i <= Model.PageCount; i++)
+        {
+            if (i == 10)
+            {
+                <li><a class="page-numbers" href="#">...</a></li>
+            }
+
+            if (i > 9 && i < Model.PageCount - 4)
+            {
+                continue;
+            }
+
+            var classValue = (i == Model.Page) ? "active" : "page-numbers";
+            <li><a class="@classValue" href="@string.Concat(Model.Route,"?page=", i)">@i</a></li>
+        }
         <li class="float-right"><a class="page-numbers" href="#">Next</a></li>
     </ul>
 </div><!-- /.tr-pagination --> 

@@ -19,6 +19,7 @@ namespace Shop
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
+                .ConfigureLogging(x => x.AddConsole())
                 .UseStartup<Startup>();
     }
 }

@@ -1,20 +1,18 @@
-﻿
+﻿@model Hashdji.Software.Shop.Models.ProductViewModels.ProductListViewModel
 @{
     ViewData["Title"] = "Index";
+    Layout = "_ProductLayout";
 }
 
-<partial name="_Banner" />
+<div class="tr-products">
+    <div class="row">
+        @foreach (var product in Model.Products)
+        {
+            <div class="col-md-6 col-lg-4">
+                <partial name="_ProductListItem" model="product" />
+            </div>
+        }
+    </div><!-- /.row -->
+</div><!-- /.tr-products -->
 
-<div class="main-content popup-one">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8 col-lg-9 push-md-4 push-lg-3">
-                <partial name="_ProductList" />
-                <partial name="_Pagination" />
-            </div>
-            <div class="col-md-4 col-lg-3 pull-md-8 pull-lg-9">
-                <partial name="_Sidebar" />
-            </div>
-        </div><!-- /.row -->
-    </div><!-- /.container -->
-</div><!-- /.main-content -->
+<partial name="_Pagination" model="Model"/>

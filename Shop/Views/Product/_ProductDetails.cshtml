@@ -1,0 +1,62 @@
+﻿@model Hashdji.Software.Shop.Models.ProductViewModels.ProductDetailsViewModel
+@{ 
+    var isActive = true;
+    var count = 0;
+}
+<div class="product-details section-bg-white">
+    <div class="row">
+        <div class="col-lg-6">
+            <div id="details-slider" class="details-slider carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    @foreach (var picture in Model.Pictures)
+                    {
+                        var classActive = isActive ? "active" : "";
+                        <li data-target="#details-slider" data-slide-to="@count" class="@classActive"><img src="@picture.Url" alt="@picture.Alt" class="img-fluid"></li>
+                        count++;
+                        isActive = false;
+                    }
+                </ol>
+                @{ 
+                    isActive = true;
+                    count = 0;
+                }
+                <div class="carousel-inner" role="listbox">
+                    @foreach (var slider in Model.Sliders)
+                    {
+                        var classActive = isActive ? "carousel-item item active" : "carousel-item item";
+                        <div class="@classActive">
+                            <img class="img-fluid" src="@slider.Url" alt="@slider.Alt">
+                        </div>
+                        isActive = false;
+                    }
+                </div>
+            </div><!-- /#details-slider -->
+        </div>
+        <div class="col-lg-6">
+            <div class="product-details-info">
+                <span class="product-title"><strong>@Model.Name</strong></span>
+                <span class="price"><del>@Model.OldPrice @Model.Currency</del>@Model.Price @Model.Currency</span>
+
+                <p>@Model.SubTitle</p>
+                <ul class="global-list">
+                    @foreach (var spec in Model.Specifications)
+                    {
+                        <li>@spec</li>
+                    }
+                </ul>
+                <div class="quantity-price">
+                    <span>Quality</span>
+                    <div class="quantity" data-trigger="spinner">
+                        <a href="#" data-spin="down"><i class="fa fa-minus"></i></a>
+                        <input type="text" name="quantity" value="1" title="quantity" class="input-text">
+                        <a href="#" data-spin="up"><i class="fa fa-plus"></i></a>
+                    </div>
+                </div>
+                <div class="add-to-cart">
+                    <a class="btn btn-primary" href="shopping-cart.html">Add to Cart</a>
+                    <span><a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i></a></span>
+                </div><!-- /.add-to-cart -->
+            </div><!-- /.products-details-info -->
+        </div>
+    </div><!-- /.row -->
+</div><!-- /.products-details -->

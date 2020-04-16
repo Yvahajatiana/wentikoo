@@ -1,0 +1,18 @@
+﻿@model Hashdji.Software.Shop.Models.ProductViewModels.ProductViewModel
+
+<div class="product">
+    <a href="@Model.Url">
+        <span class="product-image">
+            <img src="@Model.Picture" alt="@Model.PictureAlt" class="img-fluid">
+        </span>
+        <span class="product-title">@Model.Name</span>
+        <span class="price"><del>@Model.OldPrice @Model.Currency</del>@Model.Price @Model.Currency</span>
+    </a>
+    <div class="product-icon">
+        <ul class="global-list">
+            <li><a href="#"><span class="icon icon-love"></span></a></li>
+            <li><a href="#"><span class="icon icon-shopping-cart"></span></a></li>
+            <li><a class="image-link" href="@Model.Picture"><span class="icon icon-full-screen"></span></a></li>
+        </ul>
+    </div>
+</div><!-- /.product -->

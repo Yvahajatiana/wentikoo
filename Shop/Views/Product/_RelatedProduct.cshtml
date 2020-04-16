@@ -1,0 +1,28 @@
+﻿@model IEnumerable<Hashdji.Software.Shop.Models.ProductViewModels.ProductViewModel>
+
+<div class="tr-products popup-one related-products">
+    <h1>Related <strong>Products</strong></h1>
+    <div class="row">
+        @foreach (var product in Model)
+        {
+            <div class="col-lg-4">
+                <div class="product">
+                    <a href="@product.Url">
+                        <span class="product-image">
+                            <img src="@product.Picture" alt="@product.PictureAlt" class="img-fluid">
+                        </span>
+                        <span class="product-title"><strong>@product.Name</strong></span>
+                        <span class="price"><del>@product.OldPrice @product.Currency</del>@product.Price @product.Currency</span>
+                    </a>
+                    <div class="product-icon">
+                        <ul class="global-list">
+                            <li><a href="#"><span class="icon icon-love"></span></a></li>
+                            <li><a href="#"><span class="icon icon-shopping-cart"></span></a></li>
+                            <li><a class="image-link" href="@product.Picture"><span class="icon icon-full-screen"></span></a></li>
+                        </ul>
+                    </div>
+                </div><!-- /.product -->
+            </div>
+        }
+    </div><!-- /.row -->
+</div><!-- /.tr-products -->

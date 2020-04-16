@@ -1,0 +1,22 @@
+﻿@model Hashdji.Software.Shop.Models.ProductViewModels.ProductSidebarViewModel
+<div class="widget widget_recent_entries">
+    <h3 class="widget_title">@Model.Title</h3>
+    <ul>
+        @foreach (var item in Model.Products)
+        {
+            <li>
+                <div class="product">
+                    <a href="@item.Url" class="media">
+                        <span class="product-image">
+                            <img src="@Url.Content(item.Picture)" alt="@item.PictureAlt" class="img-fluid">
+                        </span>
+                        <span class="product-info media-body">
+                            <span class="product-title">@item.Name</span>
+                            <span class="price"><del>@item.OldPrice @item.Currency</del>@item.Price @item.Currency</span>
+                        </span>
+                    </a>
+                </div><!-- /.product -->
+            </li>
+        }
+    </ul>
+</div><!-- /.widget -->

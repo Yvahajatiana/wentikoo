@@ -1,0 +1,48 @@
+﻿@model Hashdji.Software.Shop.Models.NavigationViewModels.SidebarViewModel
+
+<div class="gb-sidebar">
+    <div class="widget-area">
+        <div class="widget widget_categories">
+            <h3 class="widget_title">@Model.MenuTitle</h3>
+            <ul>
+                @foreach (var item in Model.MenuItems)
+                {
+                    if (item.Children != null && item.Children.Any())
+                    {
+                        <li><a href="#">@item.Title</a>(@item.Children.Count)</li>
+                    }
+                    else
+                    {
+                        <li><a href="@item.Url">@item.Title</a></li>
+                    }
+
+                }
+            </ul>
+        </div><!-- /.widget -->
+
+        <div class="widget">
+            <h3 class="widget_title">Price Ranger</h3>
+            <form method="get" action="#">
+                <div id="price_slider"></div>
+                <div class="price_slider_amount">
+                    <input type="text" id="amount">
+                    <button type="submit" class="btn btn-primary">Filter</button>
+                </div>
+            </form>
+        </div><!-- /.widget -->
+
+        <div class="widget widget_media_image">
+            @if (Model.Picture != null)
+            {
+                <img src="@Url.Content(Model.Picture.Url)" alt="@Model.Picture.Alt" class="img-fluid">
+            }
+            else
+            {
+                <img src="~/images/blog/widget2.jpg" alt="Image" class="img-fluid">
+            }
+        </div><!-- /.widget -->
+
+        @await Component.InvokeAsync("ProductSidebar")
+
+    </div><!-- /.widget-area -->
+</div><!-- /.gb-sidebar -->   

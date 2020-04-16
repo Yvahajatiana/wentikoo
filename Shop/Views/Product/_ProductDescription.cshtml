@@ -1,0 +1,31 @@
+﻿@model Dictionary<string, string>
+@{
+    var isFirst = true;
+    var classTab = "active";
+    var classTabContent = "show active";
+}
+<div class="products-description section-bg-white">
+    <ul class="nav nav-tabs description-tabs" role="tablist">
+        @foreach (var tabTitle in Model)
+        {
+            classTab = (isFirst) ? classTab : "";
+            <li role="presentation" class="nav-item @classTab">
+                <a class="nav-link" href="#details" aria-controls="details" role="tab" data-toggle="tab">@tabTitle.Key</a>
+            </li>
+            isFirst = false;
+        }
+    </ul>
+    @{ 
+        isFirst = true;
+    }
+    <div class="tab-content">
+        @foreach (var tabContent in Model)
+        {
+            classTabContent = (isFirst) ? classTabContent : "";
+            <div role="tabpanel" class="tab-pane fade @classTabContent" id="details">
+                <p>@tabContent.Value</p>
+            </div><!-- /.tab-pane -->
+            isFirst = false;
+        }
+    </div><!-- /.tab-content -->
+</div><!-- /.products-description -->

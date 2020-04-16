@@ -1,61 +1,90 @@
-﻿<div class="tr-menu">
+﻿@model Hashdji.Software.Shop.Models.NavigationViewModels.TopMenuViewModel
+
+<div class="tr-menu">
     <nav class="navbar navbar-toggleable-md">
         <div class="container">
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="hidden-md-up">
-                <a class="navbar-brand" href="index1.html"><img class="img-fluid" src="~/images/logo.png" alt="Logo"></a>
+                <a class="navbar-brand" href="/"><img class="img-fluid" src="@Url.Content(Model.Logo.Url)" alt="@Model.Logo.Alt"></a>
             </div>
             <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
                 <ul class="navbar-nav hidden-md-down">
-                    <li class="nav-item tr-dropdown active">
-                        <a class="nav-link" href="#">Home</a>
-                        <ul class="tr-dropdown-menu dropdown-left">
-                            <li class="nav-item"><a class="nav-link" href="index.html">Home V-1</a></li>
-                            <li class="nav-item active"><a class="nav-link" href="index1.html">Home V-2</a></li>
-                            <li class="nav-item"><a class="nav-link" href="index2.html">Home V-3</a></li>
-                        </ul>
+                    @foreach (var item in Model.MenuItems)
+                    {
+                        if (item.Position.ToLower() != "left")
+                        {
+                            continue;
+                        }
+                        <li class="nav-item tr-dropdown">
+
+                            @if (item.Children != null && item.Children.Any())
+                            {
+                                <a class="nav-link" href="#">Home</a>
+                                <ul class="tr-dropdown-menu dropdown-left">
+                                    @foreach (var subMenuItem in item.Children)
+                                    {
+                                        <li class="nav-item"><a class="nav-link" href="@subMenuItem.Url">@subMenuItem.Title</a></li>
+                                    }
+                                </ul>
+                            }
+                            else
+                            {
+                                <a class="nav-link" href="@item.Url">@item.Title</a>
+                            }
+                        </li>
+                    }
+                    <li class="tr-middle-logo">
+                        <a class="navbar-brand" href="/">
+                            <img class="img-fluid" src="@Url.Content(Model.Logo.Url)" alt="@Model.Logo.Alt">
+                        </a>
                     </li>
-                    <li class="nav-item"><a class="nav-link" href="shop-list.html">Store</a></li>
-                    <li class="nav-item"><a class="nav-link" href="pricing.html">Pricing Table</a></li>
-                    <li class="tr-middle-logo"><a class="navbar-brand" href="index1.html"><img class="img-fluid" src="~/images/logo.png" alt="Logo"></a></li>
-                    <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
-                    <li class="nav-item tr-dropdown">
-                        <a class="nav-link" href="#">Pages</a>
-                        <ul class="tr-dropdown-menu">
-                            <li class="nav-item"><a class="nav-link" href="shop-details.html">Shop Details</a></li>
-                            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-                            <li class="nav-item"><a class="nav-link" href="blog-details.html">Blog Details</a></li>
-                            <li class="nav-item"><a class="nav-link" href="signup.html">Signup</a></li>
-                            <li class="nav-item"><a class="nav-link" href="signin.html">Signin</a></li>
-                        </ul>
-                    </li>
+                    @foreach (var item in Model.MenuItems)
+                    {
+                        if (item.Position.ToLower() != "right")
+                        {
+                            continue;
+                        }
+                        <li class="nav-item tr-dropdown">
+
+                            @if (item.Children != null && item.Children.Any())
+                            {
+                                <a class="nav-link" href="#">@item.Title</a>
+                                <ul class="tr-dropdown-menu">
+                                    @foreach (var subMenuItem in item.Children)
+                                    {
+                                        <li class="nav-item"><a class="nav-link" href="@subMenuItem.Url">@subMenuItem.Title</a></li>
+                                    }
+                                </ul>
+                            }
+                            else
+                            {
+                                <a class="nav-link" href="@item.Url">@item.Title</a>
+                            }
+                        </li>
+                    }
                 </ul>
                 <ul class="navbar-nav hidden-md-up">
-                    <li class="nav-item tr-dropdown active">
-                        <a class="nav-link" href="#">Home</a>
-                        <ul class="tr-dropdown-menu dropdown-left">
-                            <li class="nav-item"><a class="nav-link" href="index.html">Home V-1</a></li>
-                            <li class="nav-item active"><a class="nav-link" href="index1.html">Home V-2</a></li>
-                            <li class="nav-item"><a class="nav-link" href="index2.html">Home V-3</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item"><a class="nav-link" href="shop-list.html">Store</a></li>
-                    <li class="nav-item"><a class="nav-link" href="pricing.html">Pricing Table</a></li>
-                    <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
-                    <li class="nav-item tr-dropdown">
-                        <a class="nav-link" href="#">Pages</a>
-                        <ul class="tr-dropdown-menu">
-                            <li class="nav-item"><a class="nav-link" href="shop-details.html">Shop Details</a></li>
-                            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-                            <li class="nav-item"><a class="nav-link" href="blog-details.html">Blog Details</a></li>
-                            <li class="nav-item"><a class="nav-link" href="signup.html">Signup</a></li>
-                            <li class="nav-item"><a class="nav-link" href="signin.html">Signin</a></li>
-                        </ul>
-                    </li>
+                    @foreach (var item in Model.MenuItems)
+                    {
+                        <li class="nav-item tr-dropdown">
+                            @if (item.Children != null && item.Children.Any())
+                            {
+                                <a class="nav-link" href="#">@item.Title</a>
+                                <ul class="tr-dropdown-menu dropdown-left">
+                                    @foreach (var subMenuItem in item.Children)
+                                    {
+                                        <li class="nav-item"><a class="nav-link" href="@subMenuItem.Url">@subMenuItem.Title</a></li>
+                                    }
+                                </ul>
+                            }
+                            else
+                            {
+                                <a class="nav-link" href="@item.Url">@item.Title</a>
+                            }
+                        </li>
+                    }
                 </ul>
             </div><!-- /.navbar-collapse -->
 
